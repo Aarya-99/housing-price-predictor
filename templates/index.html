@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .prediction {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Boston House Price Prediction</h1>
+    <form action="/predict" method="POST">
+        <div class="form-group">
+            <label for="CRIM">CRIM</label>
+            <input type="text" name="CRIM" required>
+        </div>
+        <div class="form-group">
+            <label for="ZN">ZN</label>
+            <input type="text" name="ZN" required>
+        </div>
+        <div class="form-group">
+            <label for="INDUS">INDUS</label>
+            <input type="text" name="INDUS" required>
+        </div>
+        <div class="form-group">
+            <label for="CHAS">CHAS (0 or 1)</label>
+            <input type="text" name="CHAS" required>
+        </div>
+        <div class="form-group">
+            <label for="NOX">NOX</label>
+            <input type="text" name="NOX" required>
+        </div>
+        <div class="form-group">
+            <label for="RM">RM</label>
+            <input type="text" name="RM" required>
+        </div>
+        <div class="form-group">
+            <label for="AGE">AGE</label>
+            <input type="text" name="AGE" required>
+        </div>
+        <div class="form-group">
+            <label for="DIS">DIS</label>
+            <input type="text" name="DIS" required>
+        </div>
+        <div class="form-group">
+            <label for="RAD">RAD</label>
+            <input type="text" name="RAD" required>
+        </div>
+        <div class="form-group">
+            <label for="TAX">TAX</label>
+            <input type="text" name="TAX" required>
+        </div>
+        <div class="form-group">
+            <label for="PTRATIO">PTRATIO</label>
+            <input type="text" name="PTRATIO" required>
+        </div>
+        <div class="form-group">
+            <label for="B">B</label>
+            <input type="text" name="B" required>
+        </div>
+        <div class="form-group">
+            <label for="LSTAT">LSTAT</label>
+            <input type="text" name="LSTAT" required>
+        </div>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <div class="prediction">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+</body>
+</html>
